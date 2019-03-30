@@ -43,22 +43,16 @@ Le fichier `cityAutoComplete.js` est à construire complètement.
 
 ## EXERCICE 1 - Ébauche du fichier `cityAutoComplete.js`
 
+1. Dans le fichier `cityAutoComplete.js`, codez la fonction `afficheVilles` qui prend en paramètre un tableau de villes comme par exemple ["Bordeaux","Toulouse","Montpellier","Nice"] et dont l'effet
 
+   et dont l’effet est de remplir le <div id="myac"> avec un paragraphe par nom de villes comme ci-dessous
 
-1. Dans le fichier cityAutoComplete.js, codez la fonction afficheVilles
-
-
-
-
-
-qui prend en paramètre un tableau de villes comme 
-
-
-
-
-et dont l’effet est de remplir le <div id="myac"> avec un paragraphe par nom de villes comme ci-dessous
-
-
+   		<div id="myac">
+   			<p>Bordeaux</p>
+   			<p>Toulouse</p>
+   			<p>Montpellier</p>
+   			<p>Nice</p>
+   		</div>
 
 
 
