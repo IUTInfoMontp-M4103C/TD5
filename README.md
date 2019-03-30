@@ -81,19 +81,15 @@ Le paramètre `city` permettra d’utiliser `selectByName($name)`, avec la bonne
 
 		SELECT * FROM cities WHERE name LIKE 'Bo%' LIMIT 5
 
+1. Complétez la page `cityRequest.php` pour qu’elle suive les étapes suivantes :
 
-Exercice 2
++ extraire le name passé en `GET` dans l’url ;
 
++ appeler la fonction `selectByName` déjà codée et stocker le résultat dans une variable `$res` ;
 
-1. Complétez la page cityRequest.php pour qu’elle suive les étapes suivantes :
++ produire un `echo json_encode` de cette variable. L’affichage produit se fera donc en format `JSON` facilement exploitable par JavaScript.
 
-a) extraire le name passé en GET dans l’URL ;
-
-b) appeler la fonction selectByName déjà codée et stocke le résultat dans une variable $res ;
-
-c) produire un echo json_encode de cette variable. L’affichage produit se fera donc en format JSON facilement exploitable par JavaScript.
-
-2. Testez ensuite le bon fonctionnement de la page en appelant des url du type cityRequest.php?city=Mo ou cityRequest.php?city=Toul. Vous devez voir dans le navigateur un affichage brut du résultat de la requête SQL.
+2. Testez ensuite le bon fonctionnement de la page en appelant des url du type `cityRequest.php?city=Mo` ou `cityRequest.php?city=Toul`. Vous devez voir dans le navigateur un affichage brut du résultat de la requête SQL.
 
 
 
