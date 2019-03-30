@@ -20,7 +20,7 @@ Cet élément `<div id="myac">` fournira alors une liste de villes dont le nom c
 Voir ci-dessous :
 
 <p align="center">
-   <img src="ressources/img1.png" width="600">
+   <img src="ressources/img1.png">
 </p>
 	
 Le contenu cet élément `<div id="myac">` est alimenté par le résultat (après traitement) d’une requête de type **AJAX** sur une base de données.
