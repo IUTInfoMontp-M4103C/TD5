@@ -5,6 +5,14 @@
 ## TD4
 #### _Thème : asynchronisme en JavaScript, AJAX, formulaire autocomplétif_
 
+Cliquez sur le lien ci-dessous pour faire, dans un dossier public_html/JS/TD1, votre fork privé du TD1 (**attention, pas de fork à la main !**):
+
+https://classroom.github.com/a/-2bRfmh3
+
+la version [pdf](ressources/td4.pdf)
+
+## INTRODUCTION
+
 Dans ce TD, on aborde l’aspect asynchrone de JavaScript, qui permettra de modifier le contenu d’un élément d’autocomplétion, représenté par la balise html `<div id="myac">`, à chaque modification du champ de saisie `<input id="inpcity">`. 
 
 Cet élément `<div id="myac">` fournira alors une liste de villes dont le nom commence par les lettres insérées dans `<input id="inpcity">`.
@@ -15,19 +23,13 @@ Voir ci-dessous :
    <img src="ressources/img1.png" width="600">
 </p>
 	
+Le contenu cet élément `<div id="myac">` est alimenté par le résultat (après traitement) d’une requête de type **AJAX** sur une base de données.
 
+La fin du TD est consacrée à une fonctionnalité d’actualisation de l’élément `<select id="country">` (sélecteur du pays) par changement de l’autre élément `<select id="continent">` (sélection du continent), ainsi qu'à diverses fonctionnalités complémentaires liées à la div `<input id="inpcity">`.
 
+Contrairement à la liste de villes (plus de 36000 entrées, ce qui justifie le stockage sur base de données), la liste de pays par continent est de taille raisonnable et sera gérée en local par JavaScript, par un fichier `countries.js` qui affecte une variable globale `countries`.  
 
-
-
-
-
-
-Le contenu cet élément <div id="myac"> est alimenté par le résultat (après traitement) d’une requête de type AJAX sur une base de données.
-La fin du TD est consacrée à une fonctionnalité d’actualisation de l’élément <select id="country"> (sélecteur du pays) par changement de l’autre élément <select id="continent"> (sélection du continent).
-Contrairement à la liste de villes (plus de 36000 entrées, ce qui justifie le stockage sur base de données), la liste de pays par continent est de taille raisonnable et sera gérée en local par JavaScript, par un fichier countries.js.  
-
-Vous mettrez en place un contexte web dans votre public_html avec les fichiers :
+Vous mettrez en place un contexte web dans votre `public_html` avec les fichiers :
 
 	- completion.css,
 	- loading.gif qui sert plus tard,
@@ -37,11 +39,11 @@ Vous mettrez en place un contexte web dans votre public_html avec les fichiers 
 	- Conf.php, Model.php, result.php,
 	- completion.html
 
-Le fichier cityAutoComplete.js est à construire complètement. Les fichiers de base sont téléchargeables sur moodle (TD4-Base.zip).
+Le fichier `cityAutoComplete.js` est à construire complètement.
 
-I – Ébauche du fichier cityAutoComplete.js
+## EXERCICE 1 - Ébauche du fichier `cityAutoComplete.js`
 
-Exercice 1
+
 
 1. Dans le fichier cityAutoComplete.js, codez la fonction afficheVilles
 
