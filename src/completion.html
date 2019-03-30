@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <title>Autocomplétion en Javascript</title>
+        <link rel="stylesheet" href="css/completion.css" type="text/css">
+        <script type="text/javascript" src="js/countries.js" defer></script>
+        <script type="text/javascript" src="js/cityAutoComplete.js" defer></script>
+    </head>
+    <body>
+        <form action="php/result.php" method="post">
+            <fieldset>
+                <legend>Autocomplétion en Javascript</legend>
+                <p>
+                    <label for="select-continent">Continent : </label>
+                    <select id="continent" name="continent"></select>
+                </p>
+                <p>
+                    <label for="select-country">Pays : </label>
+                    <select id="country" name="country"></select>
+                </p>
+                <div>
+                    <label for="select-city">Ville : </label>
+                    <div id="acdiv">
+                        <input id="inpcity" name="city" autocomplete="off" type="text" required>
+                        <img id="loading" src="img/loading.gif">
+                        <div id="myac"></div>
+                    </div>
+                </div>
+            </fieldset>
+            <p>
+                <input id="envoyer" value="Envoyer" type="submit">
+            </p>
+
+        </form>
+    </body>
+</html>
