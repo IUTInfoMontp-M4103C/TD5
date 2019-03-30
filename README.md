@@ -41,7 +41,7 @@ Vous mettrez en place un contexte web dans votre `public_html` avec les fichiers
 
 Le fichier `cityAutoComplete.js` est à construire complètement.
 
-## EXERCICE 1 - Ébauche du fichier `cityAutoComplete.js`
+## EXERCICE 1 – Ébauche du fichier `cityAutoComplete.js`
 
 1. Dans le fichier `cityAutoComplete.js`, codez la fonction `afficheVilles` qui prend en paramètre un tableau de villes comme par exemple `["Bordeaux","Toulouse","Montpellier","Nice"]` et dont l’effet est de remplir le `<div id="myac">` avec un paragraphe par nom de villes comme ci-dessous
 
@@ -57,30 +57,29 @@ Le fichier `cityAutoComplete.js` est à construire complètement.
    		let tableau = ["Bordeaux","Toulouse","Montpellier","Nice"];
    		afficheVilles(tableau);
 
-Faites un deuxième appel de la fonction avec le même tableau. Vous devez constater qu’il peut être mali de commencer par vider le contenu de la balise <div id="myac">. 
+   Faites un deuxième appel de la fonction avec le même tableau. Vous devez constater qu’il peut être malin de commencer par vider le contenu de la balise `<div id="myac">`. 
 
 
-2. Créez une fonction videVilles qui vide l’élément  <div id="myac">.  Cette fonction sera appelée par afficheVilles. Vous vous efforcerez d’utiliser removeChild.
+2. Créez une fonction `videVilles` qui vide l’élément `<div id="myac">`. Cette fonction sera appelée par `afficheVilles`. Vous utiliserez deux approches différentes : 
 
-Remarque : on ne dit pas que les méthodes appendChild et removeChild sont meilleures qu’un bricolage du innerHTML, par contre elles sont plus dans la logique objet, et seront plus simples à utiliser si l’arborescence à ajouter/modifier se complique. Notre arborescence de <p> reste ici simple.
+	- une méthode qui utilise `removeChild`,
+	- une méthode plus basique qui remet le `innerHTML` de `<div id="myac">` à `""`.
 
+   Remarque : on ne dit pas que les méthodes `appendChild` et `removeChild` sont meilleures qu’un "bricolage" du `innerHTML`, par contre elles sont plus dans la logique objet, et seront plus simples à utiliser si l’arborescence à ajouter/modifier se complique. Notre arborescence de `<p>` reste ici simple.
 
- 
+## EXERCICE 2 – La page de requête cityRequest.php
 
-II – La page de requête cityRequest.php
+Cette page côté serveur est déjà codée pour vous permettre de lancer une requête de type `SELECT` sur la base de données. Elle incorpore un fichier `Model.php` qui incorpore lui-même un fichier `Conf.php`. Ce fichier `Model.php` vous propose une méthode `static selectByName` qui permettra de récupérer les 5 premières villes dont le nom commence comme la chaîne de caractères passée en paramètre à cette méthode (voir le code).
 
+Les deux classes `Conf` et `Model` ont été abordées au S3 et vous n’avez pas à y toucher (sauf si vous voulez changer les paramètres de connexion pour utiliser votre propre base de données, avec le fichier `cities.sql` du dossier `src`).
 
-Cette page côté serveur est déjà codée pour vous permettre de lancer une requête de type SELECT sur la base de données. Elle incorpore un fichier Model.php qui incorpore lui-même un fichier Conf.php. Ce fichier Model.php vous propose une méthode static selectByName qui permettra de récupérer les 5 premières villes dont le nom commence comme la chaîne de caractères passée en paramètre à cette méthode (voir le code).
+Vous n’interviendrez que sur les quelques lignes du fichier `cityRequest.php`.
 
-Les deux classes Conf et Model ont été abordées au S3 et vous n’avez pas à y toucher (sauf si vous voulez changer les paramètres de connexion pour utiliser votre propre base de données, avec le fichier cities.sql donné sur Moodle).
+Ce fichier sera exécuté au moyen d’url du type `cityRequest.php?city=Bo`
 
-Vous n’interviendrez que sur les quelques lignes du fichier cityRequest.php.
+Le paramètre `city` permettra d’utiliser `selectByName($name)`, avec la bonne valeur pour le paramètre `$name`. Par exemple, l’url `cityRequest.php?city=Bo` permettra de lancer, par la fonction `selectByName`, la requête `SQL` suivante :
 
-Ce fichier sera exécuté au moyen d’url du type cityRequest.php?city=Bo
-
-Le paramètre city permettra d’utiliser selectByName($name), avec la bonne valeur pour le paramètre $name. Par exemple, l’url cityRequest.php?city=Bo permettra de lancer, par la fonction selectByName, la requête SQL suivante :
-
-SELECT * FROM cities WHERE name LIKE 'Bo%' LIMIT 5
+		SELECT * FROM cities WHERE name LIKE 'Bo%' LIMIT 5
 
 
 Exercice 2
