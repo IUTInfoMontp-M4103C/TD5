@@ -31,13 +31,13 @@ Contrairement à la liste de villes (plus de 36000 entrées, ce qui justifie le 
 
 Vous mettrez en place un contexte web dans votre `public_html` avec les fichiers :
 
-	- completion.css,
-	- loading.gif qui sert plus tard,
-	- cityAutoComplete.js à compléter,
-	- countries.js qui sert plus tard,
-	- la base de cityRequest.php,
-	- Conf.php, Model.php, result.php,
-	- completion.html
+- completion.css,
+- loading.gif qui sert plus tard,
+- cityAutoComplete.js à compléter,
+- countries.js qui sert plus tard,
+- la base de cityRequest.php,
+- Conf.php, Model.php, result.php,
+- completion.html
 
 Le fichier `cityAutoComplete.js` est à construire complètement.
 
