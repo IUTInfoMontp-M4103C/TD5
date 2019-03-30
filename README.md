@@ -43,9 +43,9 @@ Le fichier `cityAutoComplete.js` est à construire complètement.
 
 ## EXERCICE 1 - Ébauche du fichier `cityAutoComplete.js`
 
-1. Dans le fichier `cityAutoComplete.js`, codez la fonction `afficheVilles` qui prend en paramètre un tableau de villes comme par exemple ["Bordeaux","Toulouse","Montpellier","Nice"] et dont l'effet
+1. Dans le fichier `cityAutoComplete.js`, codez la fonction `afficheVilles` qui prend en paramètre un tableau de villes comme par exemple `["Bordeaux","Toulouse","Montpellier","Nice"]` et dont l'effet
 
-   et dont l’effet est de remplir le <div id="myac"> avec un paragraphe par nom de villes comme ci-dessous
+   et dont l’effet est de remplir le `<div id="myac">` avec un paragraphe par nom de villes comme ci-dessous
 
    		<div id="myac">
    			<p>Bordeaux</p>
@@ -54,14 +54,10 @@ Le fichier `cityAutoComplete.js` est à construire complètement.
    			<p>Nice</p>
    		</div>
 
+   Votre code utilisera obligatoirement la méthode `appendChild` pour chaque `<p>` à créer. Insérez votre fichier `cityAutoComplete.js` dans le `html`, puis testez votre fonction avec le tableau ci-dessus en le déclarant dans une variable `tableau` et en lançant `afficheVilles(tableau)` dans la console;
 
-
-
-
-
-
-
-Votre code utilisera obligatoirement la méthode appendChild pour chaque <p> à créer. Insérez votre fichier cityAutoComplete.js dans le html, puis testez votre fonction avec le tableau ci-dessus en le déclarant dans une variable tableau et en lançant afficheVilles(tableau) dans la console;
+   		let tableau = ["Bordeaux","Toulouse","Montpellier","Nice"];
+   		afficheVilles(tableau);
 
 Faites un deuxième appel de la fonction avec le même tableau. Vous devez constater qu’il peut être mali de commencer par vider le contenu de la balise <div id="myac">. 
 
