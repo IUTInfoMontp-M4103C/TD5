@@ -92,105 +92,88 @@ Le paramètre `city` permettra d’utiliser `selectByName($name)`, avec la bonne
 2. Testez ensuite le bon fonctionnement de la page en appelant des url du type `cityRequest.php?city=Mo` ou `cityRequest.php?city=Toul`. Vous devez voir dans le navigateur un affichage brut du résultat de la requête SQL.
 
 
+## EXERCICE 3 – Requête asynchrone
+
+### Un peu de technique
+
+Les navigateurs modernes fournissent une interface JavaScript nommée `XMLHttpRequest` (abr. XHR) qui permet de lancer des requêtes HTTP de manière asynchrone, c’est-à-dire sans bloquer la page web courante. 
+
+L’ensemble des technologies autour des pages web asynchrones s’appelle `AJAX` (_Asynchronous Javascript And Xml_). 
+
+Voici le squelette d’une requête `AJAX` :
 
 
-
-III – Requête asynchrone
-
-
-Les navigateurs modernes fournissent une interface JavaScript nommée XMLHttpRequest (abr. XHR) qui permet de lancer des requêtes HTTP de manière asynchrone, c’est-à-dire sans bloquer la page web courante. 
-
-L’ensemble des technologies autour des pages web asynchrones s’appelle AJAX (Asynchronous Javascript And Xml). 
-
-
-Voici dans le cadre ci-dessous le squelette d’une requête AJAX :
-
+		function myajax(stringCity) {
+			let url = "php/cityRequest.php?city=" + stringCity
+			let requete = new XMLHttpRequest();
+			requete.open("GET", url, true);
+			requete.addEventListener("load", function () {
+				console.log(requete);
+			});
+			requete.send(null);
+		}
 
 
+La fonction `myajax` :
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-La fonction myajax :
-
-gère un paramètre stringCity qui est une chaîne de caractères (ce sera celle qu’on écrira dans la balise <input id="inpcity">) ;
-crée une url pour cityRequest.php, construite à partir du paramètre ;
-crée un objet XMLHttpRequest nommé requete, dont la méthode open donne le type de requête HTTP à effectuer (ici GET), l’URL de la page demandée et le troisième argument (true) signifie que la requête doit être asynchrone.
-met cet objet requete en écoute de l’événement load, ce qui signifie que l’objet requete attendra la fin du chargement des données commandées à la base de données, pour lancer la fonction déclarée de manière anonyme et dont la mission est ici d’afficher l’objet requete dans la console).
-La requête en elle-même est lancée par la méthode send. Le paramètre null est lié au fait que la méthode est GET. Si c’était POST, on aurait comme paramètre une chaîne de caractères annonçant les paires «nom=valeur», c’est-à-dire ici «city=…»
++ gère un paramètre `stringCity` qui est une chaîne de caractères (ce sera celle qu’on écrira dans la balise `<input id="inpcity">`);
++ crée une url pour `cityRequest.php`, construite à partir du paramètre `stringCity`;
++ crée un objet `XMLHttpRequest` nommé `requete`;
++ ouvre cette requête avec la méthode `open` qui donne le type de requête HTTP à effectuer (ici `GET`), l’URL de la page demandée et le troisième argument (`true`) signifie que la requête doit être asynchrone.
++ met cet objet `requete` en écoute de l’événement `load`, ce qui signifie que l’objet `requete` attendra la fin du chargement des données commandées à la base de données, pour lancer la fonction déclarée de manière anonyme et dont la modeste mission est ici d’afficher l’objet `requete` dans la console).
++ lance la requête par la méthode `send`. Le paramètre `null` est lié au fait que la méthode est `GET`. Si c’était `POST`, on aurait comme paramètre une chaîne de caractères annonçant les paires «`nom=valeur`», c’est-à-dire ici «`city=…`»
 
 
 Le principe d’une requête asynchrone est qu’elle ne bloque pas l’exécution du JavaScript le temps que le serveur renvoie sa réponse. 
 
-La fonction anonyme, qui ne fait qu’afficher l’objet requete dans la console, est appelée fonction callback. Elle sera appelée lorsque le serveur aura retourné ses informations.
+La fonction anonyme, qui ne fait qu’afficher l’objet requete dans la console, est appelée fonction **callback**. Elle sera appelée lorsque le serveur aura retourné ses informations.
 
-Elle a pour mission le traitement de la réponse du serveur. Bien entendu, au final, cette fonction callback aura pour mission de remplir le contenu de la balise <div id="myac">.
+Elle a pour mission **le traitement de la réponse du serveur**. Bien entendu, au final, cette fonction _callback_ aura pour mission de remplir le contenu de la balise `<div id="myac">`.
 
-C’est ce que nous allons structurer, en plusieurs étapes. Comme nous allons construire plusieurs versions de la fonction callback, nous allons plutôt utiliser ce code plus générique :
-
-
+C’est ce que nous allons structurer, en plusieurs étapes. Comme nous allons construire plusieurs versions de la fonction `callback`, nous allons plutôt utiliser ce code plus générique :
 
 
+		function myajax(stringCity,callback) {
+			var url = "php/cityRequest.php?city=" + stringCity;
+			var requete = new XMLHttpRequest();
+			requete.open("GET", url, true);
+			requete.addEventListener("load", function () {
+				callback(requete);
+			});
+			requete.send(null);
+		}
 
 
+Dans cette version de `myajax`, on passera en deuxième paramètre le nom de la fonction qu’on aura choisie pour jouer le rôle du callback. Ainsi, pour avoir l’équivalent du premier code, on pourrait avoir définir une fonction `callback_1` de la façon suivante :
+
+		function callback_1(req) {
+			console.log(req);
+		}
 
 
+Et on pourrait utiliser par exemple un appel `myajax("Bo",callback_1);`
 
+### écriture de quelques versions du callback
 
+1. Complétez votre fichier `cityAutocomplete.js` avec le code des deux cadres précédents. Placez la ligne d’insertion du script dans le `head` de la page.
 
+Nouveauté : ajoutez l’attribut `defer` à `<script>` pour que le chargement du JS ne bloque pas la construction du DOM. Ceci revient à placer l’insertion du fichier avant la fin du `body`. La ligne d’insertion sera donc :
 
+		<script type="text/javascript" src="js/cityAutoComplete.js" defer></script>
 
-
-
-
-
-
-Dans cette version de myajax, on passera en deuxième paramètre le nom de la fonction qu’on aura choisie pour jouer le rôle du callback. Ainsi, pour avoir l’équivalent du premier code, on pourrait avoir définir une fonction callback_1 de la façon suivante :
-
-
-
-
-
-
-
-Et on pourrait utiliser par exemple un appel myajax("Bo",callback_1);
-
-
-
-
-
-
-Exercice 3 – écriture de quelques versions du callback
-
-
-1. Complétez votre fichier cityAutocomplete.js avec le code des deux cadres précédents. Placez la ligne d’insertion du script dans le head de la page.
-
-Nouveauté : ajoutez l’attribut defer à <script> pour que le chargement du JS ne bloque pas la construction du DOM. Ceci revient à placer l’insertion du fichier avant la fin du body. La ligne d’insertion sera donc :
-
-<script type="text/javascript" src="js/cityAutoComplete.js" defer></script>
-
-2. Lancez dans la console la commande   myajax("Bo",callback_1);
-Vous devez voir dans la console un descriptif complet de l’objet requete, avec notamment son attribut responseText.
+2. Lancez dans la console la commande `myajax("Bo",callback_1);`. Vous devez voir dans la console un descriptif complet de l’objet `requete`, avec notamment son attribut `responseText`.
 
 3. Lancez d’autres commandes similaires en changeant le premier argument.
 
-4. Écrivez une fonction callback_2 qui, au lieu d’afficher dans la console l’objet XHR, comme le faisait callback_1, affichera un JSON.parse de l’attribut responseText de requete. Quel est l’effet de JSON.parse ? 
+4. Écrivez une fonction `callback_2` qui, au lieu d’afficher dans la console l’objet XHR, comme le faisait `callback_1`, affichera un `JSON.parse` de l’attribut `responseText` de `requete`. Quel est l’effet de `JSON.parse` ? 
 
-5. Testez ce callback_2 en console avec la commande myajax("Bo",callback_2);
+5. Testez ce `callback_2` en console avec la commande `myajax("Bo",callback_2);`
 
-Vous devriez obtenir un résultat comme ci-dessous
+   Vous devriez obtenir un résultat comme ci-dessous
 
-
+<p align="center">
+   <img src="ressources/img2.png">
+</p>
 
 
 
