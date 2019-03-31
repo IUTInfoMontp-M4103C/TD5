@@ -175,31 +175,18 @@ Nouveauté : ajoutez l’attribut `defer` à `<script>` pour que le chargement 
    <img src="ressources/img2.png">
 </p>
 
+6. Créez une fonction `callback_3` qui transforme encore le résultat précédent pour créer un tableau contenant l’attribut `name` de chacun des objets. Ainsi, quand on lance la commande `myajax("Bo",callback_3)` on doit ontenir dans la console :
+
+<p align="center">
+   <img src="ressources/img2.png">
+</p>
 
 
+7. Créez enfin le callback final `callback_4` qui produit le même tableau que `callback_3`, et qui affiche son contenu (par l’intermédiaire de la fonction `afficheVilles`) dans la balise `<div id="myac">`.
 
+8. Testez votre fonction `callback_4` en appelant `myajax` à partir de la console avec des chaînes de caractères diverses en premier paramètre.
 
-
-
-
-
-
-
-
-
-
-
-
-6. Créez une fonction callback_3 qui transforme encore le résultat précédent pour créer un tableau contenant l’attribut « name » de chacun des objets. Ainsi, quand on lance la commande myajax("Bo",callback_3) on doit ontenir dans la console :
-
-
-
-
-7. Créez enfin le callback final callback_4 qui produit le même tableau que callback_3, et qui affiche son contenu (par l’intermédiaire de la fonction afficheVilles) dans la balise <div id="myac">.
-
-8. Testez votre fonction callback_4 en appelant myajax à partir de la console avec des chaînes de caractères diverses en premier paramètre.
-
-9. Créez enfin, toujours dans le fichier cityAutocomplete.js, une fonction cityRequest qui prend en paramètre une chaîne de caractères. Grâce à cette fonction, l’ instruction cityRequest('Toul') sera exactement équivalente à l’instruction myajax("Toul",callback_4).
+9. Créez enfin, toujours dans le fichier `cityAutocomplete.js`, une fonction `cityRequest` qui prend en paramètre une chaîne de caractères. Grâce à cette fonction, l’instruction `cityRequest('Toul')` sera exactement équivalente à l’instruction `myajax("Toul",callback_4)`.
 
 
 
