@@ -209,42 +209,41 @@ Nouveauté : ajoutez l’attribut `defer` à `<script>` pour que le chargement 
 ## EXERCICE 5 – Les deux sélecteurs
 
 
-Les deux sélecteurs <select id="continent"> et <select id="country"> vont fonctionner indépendamment du champ d’autocomplétion. Le sélecteur de continents sera chargé dès le début, et le contenu du sélecteur de pays devra s’actualiser au changement de la valeur du sélecteur de continents. La liste des pays et des continents auxquels ils appartiennent se trouve dans le fichier countries.js. 
+Les deux sélecteurs `<select id="continent">` et `<select id="country">` vont fonctionner indépendamment du champ d’autocomplétion. Le sélecteur de continents sera chargé dès le début, et le contenu du sélecteur de pays devra s’actualiser au changement de la valeur du sélecteur de continents. La liste des pays et des continents auxquels ils appartiennent se trouve dans le fichier `countries.js`. 
 
 
-Exercice 5 – Le sélecteur de continents
+### Le sélecteur de continents
 
 
-1. Insérez, au niveau du head de completion.html, le fichier countries.js qui permet d’accéder à la variable countries. Attention d’insérer ce fichier avant le précédent. Réutilisez l’attribut defer.
+1. Insérez, au niveau du `head` de `completion.html`, le fichier `countries.js` qui permet d’accéder à la variable `countries`. Attention d’insérer ce fichier avant le précédent. Réutilisez l’attribut `defer`.
 
-2. Créez, dans cityAutocomplete.js, une fonction chargerSelecteurContinents basée sur appendChild et qui permet de structurer le sélecteur de continents en lui ajoutant des enfants <option>...</option>. Chacune de ces enfants aura pour innerHTML l’une des clés qu’on obtient par la méthode Object.keys appliquée à countries. 
+2. Créez, dans `cityAutocomplete.js`, une fonction `chargerSelecteurContinents` basée sur `appendChild` et qui permet de structurer le sélecteur de continents en lui ajoutant des enfants `<option>...</option>`. Chacune de ces enfants aura pour `innerHTML` l’une des clés qu’on obtient par la méthode `Object.keys` appliquée à `countries`. 
 
-Vous aurez donc à utiliser le contenu de Object.keys(countries).
+   Vous aurez donc à utiliser le contenu de `Object.keys(countries)`.
 
-Vous ajouterez un enfant de la forme <option selected disabled>choisissez un continent</option>. Il faudra pour cela agir sur les attributs .selected et .disabled de l’élément créé (les mettre à la valeur true).
+   Vous ajouterez un enfant de la forme `<option selected disabled>choisissez un continent</option>`. Il faudra pour cela agir sur les attributs `selected` et `disabled` de l’élément créé (les mettre à la valeur `true`).
 
-Testez cette fonction dans la console et vérifiez que le sélecteur de continents se remplit bien.
+   Testez cette fonction dans la console et vérifiez que le sélecteur de continents se remplit bien.
 
-3. Faites en sorte que ce sélecteur se remplisse au chargement de la page. Pour cela, votre fonction chargerSelecteurContinents sera associée à l’événement DOMContentLoaded dans un écouteur d’événement de l’objet document.
-
-
-
-Exercice 6 – Le sélecteur de pays
+3. Faites en sorte que ce sélecteur se remplisse au chargement de la page. Pour cela, votre fonction `chargerSelecteurContinents` sera associée à l’événement `DOMContentLoaded` dans un écouteur d’événement de l’objet document.
 
 
-1. Lors d’un changement de valeur du sélecteur de continents , le sélecteur de pays doit proposer les pays du continent sélectionné.
 
-Créez, dans cityAutocomplete.js, une fonction chargerSelecteurPays qui permet de construire les fils de la balise <select id="country"> : 
+### Le sélecteur de pays
 
-récupérer la valeur du sélecteur de continents ;
-récupérer, dans countries, le tableau correspondant à cette valeur ;
-créer, pour chaque entrée du tableau, une ligne du sélecteur de pays au moyen de la méthode appendChild (assez similaire au sélecteur de continents).
-ne pas oublier la ligne 
-<option selected disabled>choisissez un pays</option>
 
-2. Testez votre fonction dans la console. Vous ferez bien attention au fait que le sélecteur de pays doit être réinitialisé à chaque fois.
+4. Lors d’un changement de valeur du sélecteur de continents, le sélecteur de pays doit proposer les pays du continent sélectionné.
 
-3. Munissez le sélecteur de continents d’un écouteur d’événement pour que chaque changement de ce sélecteur lance la fonction chargerSelecteurPays.
+   Créez, dans `cityAutocomplete.js`, une fonction `chargerSelecteurPays` qui permet de construire les fils de la balise `<select id="country">` : 
+
+	+ récupérer la valeur du sélecteur de continents ;
+	+ récupérer, dans `countries`, le tableau correspondant à cette valeur ;
+	+ créer, pour chaque entrée du tableau, une ligne du sélecteur de pays au moyen de la méthode `appendChild` (assez similaire au sélecteur de continents).
+	+ ne pas oublier la ligne `<option selected disabled>choisissez un pays</option>`
+
+5. Testez votre fonction dans la console. Vous ferez bien attention au fait que le sélecteur de pays doit être réinitialisé à chaque fois.
+
+6. Munissez le sélecteur de continents d’un écouteur d’événement pour que chaque changement de ce sélecteur lance la fonction `chargerSelecteurPays`.
 
 
 V – Compléments divers
