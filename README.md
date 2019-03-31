@@ -246,41 +246,40 @@ Les deux sélecteurs `<select id="continent">` et `<select id="country">` vont f
 6. Munissez le sélecteur de continents d’un écouteur d’événement pour que chaque changement de ce sélecteur lance la fonction `chargerSelecteurPays`.
 
 
-V – Compléments divers
+## EXERCICE 6 – Compléments divers
 
 
-Exercice 7 – Détail css
+### Détail css
 
-Vous corrigerez un petit détail : Il y a un petit carré gris qui apparaît quand <div id="myac"> est vide. C’est sa border, de largeur 1px. Faites en sorte de corriger, au niveau du JavaScript, l’attribut style.borderWidth de cette div en fonction de son contenu, pour ne pas avoir ce défaut du petit carré gris. 
-
-
-Exercice 8 – Limitation de l’autocomplétion
-
-Modifiez légèrement la fonction associée à l’événement input pour que l’auto-complétion n’opère que si le contenu du champ Ville contient au moins deux caractères.
+Vous corrigerez un petit détail : Il y a un petit carré gris qui apparaît quand `<div id="myac">` est vide. C’est sa `border,` de largeur `1px`. Faites en sorte de corriger, au niveau du JavaScript, l’attribut `style.borderWidth` de cette `div` en fonction de son contenu, pour ne pas avoir ce défaut du petit carré gris. 
 
 
-Exercice 9 – Signal de chargement
+### Limitation de l’autocomplétion
 
-Lorsqu’un chargement est en cours, nous pouvons le signaler à l’utilisateur pour qu’il patiente le temps nécessaire. Dans notre cas, nous afficherons le GIF de chargement loading.gif fourni dans l’archive .zip pendant le délai de réponse du serveur.
-
-1. Modifiez myajax pour que la fonction prenne en paramètres supplémentaires deux fonctions startLoadingAction et endLoadingAction.
-
-La première fonction sera lancée dès le lancement de la requête. La deuxième sera lancée dès la réception de la réponse. On aura donc des appels de la forme
-
-myajax("Bo",callback,action_debut,action_fin)
-
-La première fonction sera lancée en première instruction de myajax, et la deuxième sera lancée après le callback de l’écouteur d’événement load.
-
-2. Dans la fonction cityRequest, modifiez l’appel à myajax pour ajouter deux nouveaux paramètres : ce seront deux fonctions anonymes :
-
-la première, qui jouera le rôle de startLoadingAction, rendra visible le GIF de chargement ;
-la deuxième, qui jouera le rôle de endLoadingAction, lui redonnera une visibilité hidden.
-
-3. Pour que le comportement soit visible, truquez en ajoutant une temporisation de 1 seconde dans cityRequest.php
-Note : l’instruction PHP : sleep(1);
+Modifiez légèrement la fonction associée à l’événement input pour que l’auto-complétion n’opère que si le contenu du champ `Ville` contient au moins deux caractères.
 
 
+### Signal de chargement
 
-Exercice 10 – Utilisation des touches ↓ , ↑ et ↵
+Lorsqu’un chargement est en cours, nous pouvons le signaler à l’utilisateur pour qu’il patiente le temps nécessaire. Dans notre cas, nous afficherons le GIF de chargement `loading.gif` fourni dans l’archive .zip pendant le délai de réponse du serveur.
 
-Les touches haut et bas servent habituellement à se déplacer dans la liste des suggestions, et la touche ENTER à valider l’élément courant. L’utilisation de ces touches entraîne une mise à jour du champ texte où s’inscrit le nom de la ville. Programmez ces comportements.
+1. Modifiez `myajax` pour que la fonction prenne en paramètres supplémentaires deux fonctions `startLoadingAction` et `endLoadingAction`.
+
+   + La première fonction sera lancée dès le lancement de la requête. La deuxième sera lancée dès la réception de la réponse. On aura donc des appels de la forme
+
+		myajax("Bo",callback,action_debut,action_fin)
+
+   + La première fonction sera lancée en première instruction de `myajax`, et la deuxième sera lancée après le `callback` de l’écouteur d’événement `load`.
+
+2. Dans la fonction `cityRequest`, modifiez l’appel à `myajax` pour ajouter deux nouveaux paramètres : ce seront deux fonctions anonymes :
+
+	+ la première, qui jouera le rôle de `startLoadingAction`, rendra visible le GIF de chargement ;
+	+ la deuxième, qui jouera le rôle de `endLoadingAction`, lui redonnera une visibilité `hidden`.
+
+3. Pour que le comportement soit visible, truquez en ajoutant une temporisation de 1 seconde dans `cityRequest.php`
+
+   Note : l’instruction PHP : `sleep(1);`
+
+## Exercice 7 – Utilisation des touches ↓ , ↑ et ↵
+
+Les touches haut et bas servent habituellement à se déplacer dans la liste des suggestions, et la touche `ENTER` à valider l’élément courant. L’utilisation de ces touches entraîne une mise à jour du champ texte où s’inscrit le nom de la ville. Programmez ces comportements.
