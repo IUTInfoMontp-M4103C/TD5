@@ -2,14 +2,14 @@
 
 ### IUT Montpellier-Sète – Département Informatique
 
-## TD4
+## TD5
 #### _Thème : asynchronisme en JavaScript, AJAX, formulaire autocomplétif_
 
 Cliquez sur le lien ci-dessous pour faire, dans un dossier public_html/JS/TD1, votre fork privé du TD1 (**attention, pas de fork à la main !**):
 
 https://classroom.github.com/a/-2bRfmh3
 
-la version [pdf](ressources/td4.pdf)
+la version [pdf](ressources/td5.pdf)
 
 ## INTRODUCTION
 
@@ -206,17 +206,7 @@ Nouveauté : ajoutez l’attribut `defer` à `<script>` pour que le chargement 
 	A ce stade votre champ d’autocomplétion est opérationnel.
 
 
-
-
-
-
-
-
-
-
-
-
-IV – Les deux sélecteurs
+## EXERCICE 5 – Les deux sélecteurs
 
 
 Les deux sélecteurs <select id="continent"> et <select id="country"> vont fonctionner indépendamment du champ d’autocomplétion. Le sélecteur de continents sera chargé dès le début, et le contenu du sélecteur de pays devra s’actualiser au changement de la valeur du sélecteur de continents. La liste des pays et des continents auxquels ils appartiennent se trouve dans le fichier countries.js. 
