@@ -189,21 +189,19 @@ Nouveauté : ajoutez l’attribut `defer` à `<script>` pour que le chargement 
 9. Créez enfin, toujours dans le fichier `cityAutocomplete.js`, une fonction `cityRequest` qui prend en paramètre une chaîne de caractères. Grâce à cette fonction, l’instruction `cityRequest('Toul')` sera exactement équivalente à l’instruction `myajax("Toul",callback_4)`.
 
 
+## Exercice 4 – premiers gestionnaires d’événements
 
 
-Exercice 4 – premiers gestionnaires d’événements
+1. Munissez le champ `<input id="inpcity">` d’un écouteur d’événement, associé à l’événement `input` (qui est lancé à chaque modification du contenu d’un `<input>`). La fonction appelée sera déclarée de façon anonyme, et son action sera d’appeler la fonction `cityRequest`, avec comme paramètre la valeur de la balise `<input id="inpcity">`. 
 
+   Ainsi, chaque modification de ce champ met à jour le contenu de la balise `<div id="myac">`. On y est presque… 
 
-1. Munissez le champ <input id="inpcity"> d’un écouteur d’événement, associé à l’événement input (qui est lancé à chaque modification du contenu d’un <input>). La fonction appelée sera déclarée de façon anonyme, et son action sera d’appeler la fonction cityRequest, avec comme paramètre la valeur de la balise <input id="inpcity">. 
+2. Munissez la balise `<div id="myac">` d’un écouteur d’événement, associé à l’événement `click`. Le clic sur un des paragraphes composant la balise `<div id="myac">` aura le comportement intuitif attendu :
 
-Ainsi, chaque modification de ce champ met à jour le contenu de la balise <div id="myac">. On y est presque… 
+	- remplir `<input id="inpcity">` avec le contenu du paragraphe cliqué;
+	- vider `<div id="myac">`
 
-2. Munissez la balise <div id="myac"> d’un écouteur d’événement, associé à l’événement click. Le clic sur un des paragraphes composant la balise <div id="myac"> aura le comportement intuitif attendu :
-
-remplir <input id="inpcity"> avec le contenu du paragraphe cliqué ;
-vider <div id="myac">
-
-Pour cela vous utiliserez event.target qui permet de savoir quel paragraphe est la cible de l’événement click.
+   Pour cela vous utiliserez `event.target` qui permet de savoir quel paragraphe est la cible de l’événement `click`.
 
 	A ce stade votre champ d’autocomplétion est opérationnel.
 
