@@ -21,40 +21,40 @@ Il permet par exemple de lancer des requêtes sur une base de données, mais aus
 
 Vous utiliserez le format `JSON`, qui offre un format très lisible et compréhensible d’échange de données, et que vous pouvez utiliser en **PHP** et en **JavaScript**. Ce format sera utilisé simplement au travers de fonctions PHP (`json_encode`) et JS (`JSON.parse`).
 
-I – premier exemple simple
+## EXERCICE 1 – premier exemple simple
 
-1. Ecrivez un fichier coucou.php dont le seul objectif est d’afficher « coucou », au niveau de votre dossier public_html, dans un dossier TD6.
+1. Ecrivez un fichier `coucou.php` dont le seul objectif est d’afficher « coucou », au niveau de votre dossier `public_html/TD5`.
 
-	<?php echo "coucou"; ?>
+		<?php echo "coucou"; ?>
 
-2. Faites une requête http sur la page coucou.php puis ouvrez la console JavaScript (F12, onglet console).
+2. De votre navigateur, faites une requête `http` sur la page `coucou.php` puis ouvrez la console JavaScript (F12, onglet console).
 
 3. Entrez la commande suivante
 
-let xhr = new XMLHttpRequest();
+		let xhr = new XMLHttpRequest();
 
-Cette commande instancie un nouvel objet JavaScript, stocké dans la variable xhr.
+   Cette commande instancie un nouvel objet JavaScript de type `XMLHttRequest`, stocké dans la variable `xhr`.
 
-4. Cet objet sert à lancer des requêtes au serveur. Nous allons lancer, grâce à la variable xhr, une requête à la page coucou.php. Pour cela, entrez les commandes suivantes dans la console :
+4. Cet objet sert à lancer des requêtes au serveur. Nous allons lancer, grâce à la variable `xhr`, une requête à la page `coucou.php`. Pour cela, entrez les commandes suivantes dans la console :
 
-		xhr.readyState;
-		xhr.responseText;
-		xhr.open("GET","votre url vers coucou.php",true);
-		xhr.readyState;
-		xhr.responseText;
-		xhr.send(null);
-		xhr.readyState;
-		xhr.responseText;
+		xhr.readyState;										// état de xhr
+		xhr.responseText;									// contenu texte de la réponse
+		xhr.open("GET","votre url vers coucou.php",true);	// ouverture de la requête
+		xhr.readyState;										// état de xhr
+		xhr.responseText;									// contenu texte de la réponse
+		xhr.send(null);										// envoi de la requête
+		xhr.readyState;										// état de xhr
+		xhr.responseText;									// contenu texte de la réponse
 
-	- readyState donne l’état d’avancement de la requête, voir cours plus tard
+	+ `readyState` donne l’état d’avancement de la requête, voir cours plus tard
 	  (valeurs de 0 à 4)
-	- responseText donne l’état actuel de la réponse textuelle à la requête
-	- la méthode open donne à xhr tous les éléments pour lancer la requête.
-	- la méthode send envoie la requête (le paramètre null vient du fait que
+	+ `responseText` donne l’état actuel de la réponse textuelle à la requête
+	+ la méthode `open` donne à `xhr` tous les éléments pour lancer la requête.
+	+ la méthode `send` envoie la requête (le paramètre `null` vient du fait que
  	  la méthode est GET, voir plus tard dans le cours).
-	- le paramètre « true » de la méthode open sera détaillé dans le cours.
+	+ le paramètre `true` de la méthode `open` sera détaillé dans le cours.
 	
-5. Commentez l’évolution des attributs readystate et responseText
+5. Commentez l’évolution des attributs `readystate` et `responseText`.
 
 
 II – deuxième exemple – Utilisation de json_encode (PHP) et de JSON.parse (JS)
