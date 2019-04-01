@@ -37,7 +37,7 @@ Vous utiliserez le format `JSON`, qui offre un format très lisible et compréhe
 
 4. Cet objet sert à lancer des requêtes au serveur. Nous allons lancer, grâce à la variable `xhr`, une requête à la page `coucou.php`. Pour cela, entrez les commandes suivantes dans la console :
 
-		xhr.readyState;										// état de xhr
+		xhr.readyState;					// état de xhr
 		xhr.responseText;									// contenu texte de la réponse
 		xhr.open("GET","votre url vers coucou.php",true);	// ouverture de la requête
 		xhr.readyState;										// état de xhr
