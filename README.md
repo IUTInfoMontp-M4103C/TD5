@@ -121,16 +121,16 @@ remarque : évitez d’afficher directement dans la console la variable texte. 
 
 ### Détails : 
 
-	- on crée un objet `XMLHttpRequest`;
-	- on lui donne les éléments pour lancer la requête;
-	- on le met en écoute de l’événement `load`, et quand cet événement se produit, on lance une fonction anonyme qui affiche dans la console « chargement terminé » et on lance la requête.
+- on crée un objet `XMLHttpRequest`;
+- on lui donne les éléments pour lancer la requête;
+- on le met en écoute de l’événement `load`, et quand cet événement se produit, on lance une fonction anonyme qui affiche dans la console « chargement terminé » et on lance la requête.
 
 Cette fonction lancée après la fin du chargement est habituellement appelée fonction **callback**. 
 
 Vous allez mettre en œuvre ces commandes en chargeant divers fichiers txt de tailles variées (voir ces fichiers dans le dossier `src`) : 
 
-	+ mobydick.txt (environ 1,2 Mo)
-	+ bible.txt (environ 4,4 Mo)
-	+ bible2.txt (environ 45 Mo) obtenue par recopie du précédent
++ mobydick.txt (environ 1,2 Mo)
++ bible.txt (environ 4,4 Mo)
++ bible2.txt (environ 45 Mo) obtenue par recopie du précédent
 
 voyez-vous un délai pour le lancement de la fonction **callback** ?
