@@ -57,25 +57,12 @@ Vous utiliserez le format `JSON`, qui offre un format très lisible et compréhe
 5. Commentez l’évolution des attributs `readystate` et `responseText`.
 
 
-II – deuxième exemple – Utilisation de json_encode (PHP) et de JSON.parse (JS)
+## EXERCICE 2 – Utilisation de json_encode (PHP) et de JSON.parse (JS)
 
 
-1. Ecrivez un fichier haddock_v1.php dont le contenu est le suivant
+1. Examinez le contenu du fichier `src/haddock_v1.php` puis appelez-le dans le navigateur. Vérifiez qu'à l'affichage, vous obtenez bien une chaîne de caractères correspondant à un tableau équivalent à celui stocké dans la variable `$haddock`.
 
-	<?php
-		// exemple d'un tableau indicé classique
-		$haddock = [
-  			"Haddock",
-  			"Archibald",
-  			"chateau de Moulinsart",
-  			"marin",
-  			"president de la ligue anti-alcolique"
-		];
-		echo json_encode($haddock);
-	?>
-
-
-2. comme dans le premier exemple, créez un objet XMLHttpRequest puis lancez les commandes suivantes :
+2. comme dans le premier exemple, créez un objet `XMLHttpRequest` puis lancez les commandes suivantes :
 
 		let xhr = new XMLHttpRequest();		
 		xhr.open("GET","votre url vers haddock_v1.php",true);
@@ -87,40 +74,13 @@ II – deuxième exemple – Utilisation de json_encode (PHP) et de JSON.parse (
 		let tab = JSON.parse(resultat);
 		tab;
 
-III – troisième exemple – Utilisation de json_encode (PHP) et de JSON.parse (JS)
+
+## EXERCICE 3 – Utilisation de json_encode (PHP) et de JSON.parse (JS)
 
 
-1. Ecrivez un fichier haddock_v2.php dont le contenu est le suivant
+1. Examinez le contenu du fichier `src/haddock_v2.php` puis appelez-le dans le navigateur. Vérifiez qu'à l'affichage, vous obtenez bien une chaîne de caractères correspondant à un tableau équivalent à celui stocké dans la variable `$haddock`.
 
-<?php
-// exemple de structure objet
-class Coordonnees {
-  public $email;
-  public $adresse;
-  public function __construct($e, $a) {
-    $this->email = $e;
-    $this->adresse = $a;
-  }
-}
-class Personnage {
-  public $nom;
-  public $prenom;
-  public $coordonnees;
-  public $profession;
-  public function __construct($n, $p, $c, $p2) {
-    $this->nom = $n;
-    $this->prenom = $p;
-    $this->coordonnees = $c;
-    $this->profession = $p2;
-  }
-}
-$coord = new Coordonnees("archibald@yopmail.com","Moulinsart");
-$haddock = new Personnage("Haddock","Archibald",$coord,"marin");
-echo json_encode($haddock);
-?>
-
-
-2. comme dans le premier exemple, créez un objet XMLHttpRequest puis lancez les commandes suivantes :
+2. comme dans le premier exemple, créez un objet `XMLHttpRequest` puis lancez les commandes suivantes :
 
 		let xhr = new XMLHttpRequest();		
 		xhr.open("GET","votre url vers haddock_v2.php",true);
@@ -133,17 +93,17 @@ echo json_encode($haddock);
 		obj;
 
 
-3. Remarques sur la variable obj ?
+3. Remarques sur la variable `obj` ?
 
 
-IV – quatrième exemple – chargement long d’un fichier texte
+## EXERCICE 4 – chargement long d’un fichier texte
 
 
-Il peut arriver que le chargement des données à recueillir soit assez long. Dans ce cas l’attribut readystate ne passe pas immédiatement à la valeur 4.
+Il peut arriver que le chargement des données à recueillir soit assez long. Dans ce cas l’attribut `readystate` ne passe pas immédiatement à la valeur 4.
 
-L’événement load traduit la fin du chargement des données. 
+L’événement `load` traduit la fin du chargement des données. 
 
-On va donc mettre l’objet xhr en état d’écoute de cet événement.
+On va donc mettre l’objet `xhr` en état d’écoute de cet événement.
 
 Voici les commandes : 
 
@@ -159,20 +119,18 @@ Voici les commandes :
 remarque : évitez d’afficher directement dans la console la variable texte. Sa taille importante peut faire planter le navigateur...
 		
 
-détails : 
+### Détails : 
 
-- on crée un objet XMLHttpRequest ;
-- on lui donne les éléments pour lancer la requête
-- on le met en écoute de l’événement « load », et quand cet événement se
-  produit, on lance une fonction anonyme qui affiche dans la console
- « chargement terminé » et on lance la requête.
+	- on crée un objet `XMLHttpRequest`;
+	- on lui donne les éléments pour lancer la requête;
+	- on le met en écoute de l’événement `load`, et quand cet événement se produit, on lance une fonction anonyme qui affiche dans la console « chargement terminé » et on lance la requête.
 
-Cette fonction lancée après la fin du chargement est habituellement appelée fonction « callback ». 
+Cette fonction lancée après la fin du chargement est habituellement appelée fonction **callback**. 
 
-Vous allez mettre en œuvre ces commandes en chargeant divers fichiers txt de tailles variées (voir le zip sur l’ENT) : 
+Vous allez mettre en œuvre ces commandes en chargeant divers fichiers txt de tailles variées (voir ces fichiers dans le dossier `src`) : 
 
-mobydick.txt (environ 1,2 Mo)
-bible.txt (environ 4,4 Mo)
-bible2.txt (environ 45 Mo) obtenue par recopie du précédent
+	+ mobydick.txt (environ 1,2 Mo)
+	+ bible.txt (environ 4,4 Mo)
+	+ bible2.txt (environ 45 Mo) obtenue par recopie du précédent
 
-voyez-vous un délai pour le lancement de la fonction callback ?
+voyez-vous un délai pour le lancement de la fonction **callback** ?
