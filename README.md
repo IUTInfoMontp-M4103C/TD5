@@ -1,4 +1,4 @@
-# ![](ressources/logo.jpeg) Prog web client riche - JavaScript 
+# ![](ressources/logo.jpeg) Prog web client riche - JavaScript
 
 ### IUT Montpellier-Sète – Département Informatique
 
@@ -17,13 +17,13 @@ Dans ce TD, nous allons découvrir et manipuler un objet très important en Java
 
 Cet objet est une interface JavaScript permettant de communiquer avec un serveur pour recueillir des données.
 
-Il permet par exemple de lancer des requêtes sur une base de données, mais aussi, plus simplement, de recueillir des données affichées par un simple `echo` PHP. 
+Il permet par exemple de lancer des requêtes sur une base de données, mais aussi, plus simplement, de recueillir des données affichées par un simple `echo` PHP.
 
 Vous utiliserez le format `JSON`, qui offre un format très lisible et compréhensible d’échange de données, et que vous pouvez utiliser en **PHP** et en **JavaScript**. Ce format sera utilisé simplement au travers de fonctions PHP (`json_encode`) et JS (`JSON.parse`).
 
 ## EXERCICE 1 – premier exemple simple
 
-1. Ecrivez un fichier `coucou.php` dont le seul objectif est d’afficher « coucou », au niveau de votre dossier `public_html/TD5`.
+1. Vous disposez d'un fichier `ex1/coucou.php` dont le seul objectif est d’afficher « coucou ».
 
 		<?php echo "coucou"; ?>
 
@@ -53,14 +53,14 @@ Vous utiliserez le format `JSON`, qui offre un format très lisible et compréhe
 	+ la méthode `send` envoie la requête (le paramètre `null` vient du fait que
  	  la méthode est GET, voir plus tard dans le cours).
 	+ le paramètre `true` de la méthode `open` sera détaillé dans le cours.
-	
+
 5. Commentez l’évolution des attributs `readystate` et `responseText`.
 
 
 ## EXERCICE 2 – Utilisation de json_encode (PHP) et de JSON.parse (JS)
 
 
-1. Examinez le contenu du fichier `src/haddock_v1.php` puis appelez-le dans le navigateur. Vérifiez qu'à l'affichage, vous obtenez bien une chaîne de caractères correspondant à un tableau équivalent à celui stocké dans la variable `$haddock`.
+1. Examinez le contenu du fichier `src/ex2/haddock_v1.php` puis appelez-le dans le navigateur. Vérifiez qu'à l'affichage, vous obtenez bien une chaîne de caractères correspondant à un tableau équivalent à celui stocké dans la variable `$haddock`.
 
 2. comme dans le premier exemple, créez un objet `XMLHttpRequest` puis lancez les commandes suivantes :
 
@@ -78,7 +78,7 @@ Vous utiliserez le format `JSON`, qui offre un format très lisible et compréhe
 ## EXERCICE 3 – Utilisation de json_encode (PHP) et de JSON.parse (JS)
 
 
-1. Examinez le contenu du fichier `src/haddock_v2.php` puis appelez-le dans le navigateur. Vérifiez qu'à l'affichage, vous obtenez bien une chaîne de caractères correspondant à un tableau équivalent à celui stocké dans la variable `$haddock`.
+1. Examinez le contenu du fichier `src/ex3/haddock_v2.php` puis appelez-le dans le navigateur. Vérifiez qu'à l'affichage, vous obtenez bien une chaîne de caractères correspondant à un tableau équivalent à celui stocké dans la variable `$haddock`.
 
 2. comme dans le premier exemple, créez un objet `XMLHttpRequest` puis lancez les commandes suivantes :
 
@@ -101,11 +101,11 @@ Vous utiliserez le format `JSON`, qui offre un format très lisible et compréhe
 
 Il peut arriver que le chargement des données à recueillir soit assez long. Dans ce cas l’attribut `readystate` ne passe pas immédiatement à la valeur 4.
 
-L’événement `load` traduit la fin du chargement des données. 
+L’événement `load` traduit la fin du chargement des données.
 
 On va donc mettre l’objet `xhr` en état d’écoute de cet événement.
 
-Voici les commandes : 
+Voici les commandes :
 
 		let xhr = new XMLHttpRequest();		
 		xhr.open("GET","un_certain_fichier.txt",true);
@@ -117,17 +117,17 @@ Voici les commandes :
 		texte.length;
 
 remarque : évitez d’afficher directement dans la console la variable texte. Sa taille importante peut faire planter le navigateur...
-		
 
-### Détails : 
+
+### Détails :
 
 - on crée un objet `XMLHttpRequest`;
 - on lui donne les éléments pour lancer la requête;
 - on le met en écoute de l’événement `load`, et quand cet événement se produit, on lance une fonction anonyme qui affiche dans la console « chargement terminé » et on lance la requête.
 
-Cette fonction lancée après la fin du chargement est habituellement appelée fonction **callback**. 
+Cette fonction lancée après la fin du chargement est habituellement appelée fonction **callback**.
 
-Vous allez mettre en œuvre ces commandes en chargeant divers fichiers txt de tailles variées (voir ces fichiers dans le dossier `src`) : 
+Vous allez mettre en œuvre ces commandes en chargeant divers fichiers txt de tailles variées (voir ces fichiers dans le dossier `src/ex4`) :
 
 + mobydick.txt (environ 1,2 Mo)
 + bible.txt (environ 4,4 Mo)
