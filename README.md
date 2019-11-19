@@ -153,6 +153,7 @@ Voici un exemple avec utilisation du champ de recherche
    <img src="ressources/img1.png">
 </p>
 
+
 1. création de l'interface
 
 Vous devez compléter, dans le fichier `js/scripts.js`, le code de la fonction `creer_interface` qui remplira la `<div id="input">` de façon à avoir les `input` suivants :
@@ -173,3 +174,18 @@ Les clics sur les divers boutons et les changements sur le champ de recherche se
 
 
 2. la fonction charger_verbes
+
+Cette fonction prend en charge deux paramètres, `lettre` et `type`. Elle doit :
++ créer une variable `url` qui correspond à l'adresse du fichier `recherche.php` à qui on passe, en `GET`, les variables `lettre` et `type` dont les valeurs sont données en paramètres de la fonction;
++ lancer la méthode `open` de la variable globale `xhr`, en méthode `GET`, à l'url précédente, avec le paramètre `true`;
++ envoyer la requête grâce à la méthode `send` de `xhr`;
++ mettre xhr en état d'écoute de l'événement `load`, avec comme fonction de traitement asynchrone la fonction `callback`.
+
+Testez ensuite votre fonction dans la console, par exemple par des instructions comme :
+- `charger_verbes('a','init');`
+- `charger_verbes('c','init');`
+- `charger_verbes('term','seq');`
+
+Enfin, faites en sorte de modifier la fonction `creer_interface` pour que :
++ un clic sur un bouton de type lettre lance `charger_verbes` avec comme paramètres la valeur de la lettre et le type `init` (comme initiale);
++ un changement dans l'input de recherche lance `charger_verbes` avec comme paramètres la valeur du champ et le type `seq` (comme séquence).
