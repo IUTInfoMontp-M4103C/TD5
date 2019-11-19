@@ -198,3 +198,8 @@ C'est elle qui est chargée, à partir de `xhr.responseText`, de remplir la `<di
 + réinitialiser le `innerHTML` de la `div_verbes`;
 + pour chaque élément du tableau `xhrJSON`, fabriquer un élément `<p>` dont le `innerHTML` sera le libellé de l'élément courant du tableau `xhrJSON`;
 + faire adopter cet élément paragraphe par `div_verbes`.
+
+
+4. le bouton "effacer la liste"
+
+Il reste, dans la fonction creer_interface, à définir ce que donnera le clic sur le bouton "effacer la liste", à savoir : réinitialiser le `innerHTML` de `div_verbes`, et effacer la valeur du champ de recherche. 
