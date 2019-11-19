@@ -187,5 +187,5 @@ Testez ensuite votre fonction dans la console, par exemple par des instructions 
 - `charger_verbes('term','seq');`
 
 Enfin, faites en sorte de modifier la fonction `creer_interface` pour que :
-+ un clic sur un bouton de type lettre lance `charger_verbes` avec comme paramètres la valeur de la lettre et le type `init` (comme initiale);
-+ un changement dans l'input de recherche lance `charger_verbes` avec comme paramètres la valeur du champ et le type `seq` (comme séquence).
++ un clic sur un bouton de type lettre lance `charger_verbes` avec comme paramètres la valeur de la lettre et le type 'init' (comme initiale);
++ un changement dans l'input de recherche lance `charger_verbes` avec comme paramètres la valeur du champ et le type 'seq' (comme séquence).
