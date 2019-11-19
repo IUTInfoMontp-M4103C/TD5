@@ -154,7 +154,7 @@ Voici un exemple avec utilisation du champ de recherche
 </p>
 
 
-1. création de l'interface
+**1. création de l'interface**
 
 Vous devez compléter, dans le fichier `js/scripts.js`, le code de la fonction `creer_interface` qui remplira la `<div id="input">` de façon à avoir les `input` suivants :
 
@@ -173,7 +173,7 @@ Les clics sur les divers boutons et les changements sur le champ de recherche se
 - L'`input` pour effacer est un `<input type="button" value="effacer la liste">`;
 
 
-2. la fonction charger_verbes
+**2. la fonction charger_verbes**
 
 Cette fonction prend en charge deux paramètres, `lettre` et `type`. Elle doit :
 + créer une variable `url` qui correspond à l'adresse du fichier `recherche.php` à qui on passe, en `GET`, les variables `lettre` et `type` dont les valeurs sont données en paramètres de la fonction;
@@ -191,7 +191,7 @@ Enfin, faites en sorte de modifier la fonction `creer_interface` pour que :
 + un changement dans l'input de recherche lance `charger_verbes` avec comme paramètres la valeur du champ et le type 'seq' (comme séquence).
 
 
-3. La fonction callback
+**3. La fonction callback**
 
 C'est elle qui est chargée, à partir de `xhr.responseText`, de remplir la `<div id="liste_verbes">`. On doit :
 + récupérer dans une variable xhrJSON le `JSON.parse(xhr.responseText)`;
@@ -200,6 +200,6 @@ C'est elle qui est chargée, à partir de `xhr.responseText`, de remplir la `<di
 + faire adopter cet élément paragraphe par `div_verbes`.
 
 
-4. le bouton "effacer la liste"
+**4. le bouton "effacer la liste"**
 
-Il reste, dans la fonction creer_interface, à définir ce que donnera le clic sur le bouton "effacer la liste", à savoir : réinitialiser le `innerHTML` de `div_verbes`, et effacer la valeur du champ de recherche. 
+Il reste, dans la fonction creer_interface, à définir ce que donnera le clic sur le bouton "effacer la liste", à savoir : réinitialiser le `innerHTML` de `div_verbes`, et effacer la valeur du champ de recherche.
