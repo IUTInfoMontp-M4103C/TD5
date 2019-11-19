@@ -140,16 +140,26 @@ voyez-vous un délai pour le lancement de la fonction **callback** ?
 
 Jusqu'à présent, la programmation PHP serveur permettait un echo basique (simple phrase) ou plus évolué (encodage JSON d'une structure complexe, comme un tableau ou un objet PHP).
 
-Dans cet exercice, il y aura une requête sur une base de données, avec production d'un tableau résultat, puis utilisation de ce tableau par JavaScript.
+Dans cet exercice, il y aura une requête sur une base de données, avec production d'un tableau résultat, puis utilisation de ce tableau par JavaScript. Le contexte : vous disposez d'une table de données, que vous pouvez importer sur votre base de données par le fichier `verbes.sql`. Cette table contient environ 4000 verbes de la langue française. Vous devrez mettre en place une interface de sélection des verbes, et un `<div>` d'affichage des verbes sélectionnés. La sélection se fera soit en cliquant sur un bouton (qui fera apparaître tous les verbes qui commencent par la lettre en question), soit en changeant la valeur du champ texte (qui fera apparaître tous les verbes qui contiennent la séquence de caractères tapée).
+
+Voici un exemple avec utilisation du champ de recherche
+
+<p align="center">
+   <img src="ressources/img1.png">
+</p>
 
 1. création de l'interface
 
-Vous devez écrire, dans le fichier `js/scripts.js`, une fonction `creer_interface` qui remplira la `<div id="input">` de façon à avoir les `input` suivants :
+Vous devez compléter, dans le fichier `js/scripts.js`, le code de la fonction `creer_interface` qui remplira la `<div id="input">` de façon à avoir les `input` suivants :
 
 <p align="center">
    <img src="ressources/img0.png">
 </p>
 
-Cette interface sera automatiquement créée au chargement du `<body>`. Ceci peut se faire au moyen de l'instruction
+Cette interface sera automatiquement créée au chargement du `<body>`. Ceci se fera au moyen de l'instruction qui est pour le moment commentée et qu'il faudra activer :
 
 `body.onload = creer_interface;`
+
+Les clics sur les divers boutons et les changements sur le champ de recherche seront gérés plus tard.
+
+2. la fonction charger_verbes
