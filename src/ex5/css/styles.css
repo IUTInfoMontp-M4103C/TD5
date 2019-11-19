@@ -1,0 +1,9 @@
+#input {
+  position:fixed;
+  width:240px
+}
+
+#liste_verbes {
+   position:relative;
+   left:500px;
+}

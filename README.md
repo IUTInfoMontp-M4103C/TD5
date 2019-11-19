@@ -134,3 +134,10 @@ Vous allez mettre en œuvre ces commandes en chargeant divers fichiers txt de ta
 + bible2.txt (environ 45 Mo) obtenue par recopie du précédent
 
 voyez-vous un délai pour le lancement de la fonction **callback** ?
+
+
+## EXERCICE 5 - Chargement à partir d'une table de données
+
+Jusqu'à présent, la programmation PHP serveur permettait un echo basique (simple phrase) ou plus évolué (encodage JSON d'une structure complexe, comme un tableau ou un objet PHP).
+
+Dans cet exercice, il y aura une requête sur la base de données, avec production d'un tableau résultat, puis utilisation de ce tableau par JavaScript.
