@@ -167,4 +167,9 @@ Cette interface sera automatiquement créée au chargement du `<body>`. Ceci se 
 
 Les clics sur les divers boutons et les changements sur le champ de recherche seront gérés plus tard.
 
+- L'`input` de recherche est un `<input type="text" placeholder="entrez une séquence">`;
+- Les `input` représentant les lettres sont des `<input type="button" value="A">` avec une `value` personnalisée;
+- L'`input` pour effacer est un `<input type="button" value="effacer la liste">`;
+
+
 2. la fonction charger_verbes
