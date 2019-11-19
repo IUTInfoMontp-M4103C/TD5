@@ -149,3 +149,7 @@ Vous devez écrire, dans le fichier `js/scripts.js`, une fonction `creer_interfa
 <p align="center">
    <img src="ressources/img0.png">
 </p>
+
+Cette interface sera automatiquement créée au chargement du `<body>`. Ceci peut se faire au moyen de l'instruction
+
+`body.onload = creer_interface;`
