@@ -140,4 +140,12 @@ voyez-vous un délai pour le lancement de la fonction **callback** ?
 
 Jusqu'à présent, la programmation PHP serveur permettait un echo basique (simple phrase) ou plus évolué (encodage JSON d'une structure complexe, comme un tableau ou un objet PHP).
 
-Dans cet exercice, il y aura une requête sur la base de données, avec production d'un tableau résultat, puis utilisation de ce tableau par JavaScript.
+Dans cet exercice, il y aura une requête sur une base de données, avec production d'un tableau résultat, puis utilisation de ce tableau par JavaScript.
+
+1. création de l'interface
+
+Vous devez écrire, dans le fichier `js/scripts.js`, une fonction `creer_interface` qui remplira la `<div id="input">` de façon à avoir les `input` suivants :
+
+<p align="center">
+   <img src="ressources/img0.png">
+</p>
