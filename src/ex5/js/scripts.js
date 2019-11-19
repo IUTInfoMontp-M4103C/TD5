@@ -9,6 +9,11 @@ function creer_interface() {
   // à faire
 }
 
+function callback_basique() {
+  let xhrJSON = JSON.parse(xhr.responseText);
+  console.log(xhrJSON);
+}
+
 function callback() {
   // à faire
 }

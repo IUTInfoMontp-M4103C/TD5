@@ -179,7 +179,7 @@ Cette fonction prend en charge deux paramètres, `lettre` et `type`. Elle doit :
 + créer une variable `url` qui correspond à l'adresse du fichier `recherche.php` à qui on passe, en `GET`, les variables `lettre` et `type` dont les valeurs sont données en paramètres de la fonction;
 + lancer la méthode `open` de la variable globale `xhr`, en méthode `GET`, à l'url précédente, avec le paramètre `true`;
 + envoyer la requête grâce à la méthode `send` de `xhr`;
-+ mettre xhr en état d'écoute de l'événement `load`, avec comme fonction de traitement asynchrone la fonction `callback`.
++ mettre `xhr` en état d'écoute de l'événement `load`, avec comme fonction de traitement asynchrone la fonction `callback_basique`, dont le seul effet sera d'afficher le `JSON.parse(xhr.responseText)` dans la console, sans le moindre traitement esthétique.
 
 Testez ensuite votre fonction dans la console, par exemple par des instructions comme :
 - `charger_verbes('a','init');`
@@ -189,3 +189,12 @@ Testez ensuite votre fonction dans la console, par exemple par des instructions 
 Enfin, faites en sorte de modifier la fonction `creer_interface` pour que :
 + un clic sur un bouton de type lettre lance `charger_verbes` avec comme paramètres la valeur de la lettre et le type 'init' (comme initiale);
 + un changement dans l'input de recherche lance `charger_verbes` avec comme paramètres la valeur du champ et le type 'seq' (comme séquence).
+
+
+3. La fonction callback
+
+C'est elle qui est chargée, à partir de `xhr.responseText`, de remplir la `<div id="liste_verbes">`. On doit :
++ récupérer dans une variable xhrJSON le `JSON.parse(xhr.responseText)`;
++ réinitialiser le `innerHTML` de la `div_verbes`;
++ pour chaque élément du tableau `xhrJSON`, fabriquer un élément `<p>` dont le `innerHTML` sera le libellé de l'élément courant du tableau `xhrJSON`;
++ faire adopter cet élément paragraphe par `div_verbes`.
