@@ -202,4 +202,4 @@ C'est elle qui est chargée, à partir de `xhr.responseText`, de remplir la `<di
 
 **4. le bouton "effacer la liste"**
 
-Il reste, dans la fonction creer_interface, à définir ce que donnera le clic sur le bouton "effacer la liste", à savoir : réinitialiser le `innerHTML` de `div_verbes`, et effacer la valeur du champ de recherche.
+Il reste, dans la fonction `creer_interface`, à définir ce que donnera le clic sur le bouton "effacer la liste", à savoir : réinitialiser le `innerHTML` de `div_verbes`, et effacer la valeur du champ de recherche. A vous !
