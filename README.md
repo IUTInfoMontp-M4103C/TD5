@@ -164,7 +164,7 @@ Vous devez compléter, dans le fichier `js/scripts.js`, le code de la fonction `
 
 Cette interface sera automatiquement créée au chargement du `<body>`. Ceci se fera au moyen de l'instruction qui est pour le moment commentée et qu'il faudra activer :
 
-`body.onload = creer_interface;`
+	body.onload = creer_interface;
 
 Les clics sur les divers boutons et les changements sur le champ de recherche seront gérés plus tard.
 
