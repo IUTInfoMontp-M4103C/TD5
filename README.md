@@ -27,34 +27,33 @@ Vous utiliserez le format `JSON`, qui offre un format très lisible et compréhe
 
 		<?php echo "coucou"; ?>
 
-2. De votre navigateur, faites une requête `http` sur la page `coucou.php` puis ouvrez la console JavaScript (F12, onglet console).
+   De votre navigateur, faites une requête `http` sur la page `coucou.php` puis ouvrez la console JavaScript (F12, onglet console).
 
-3. Entrez la commande suivante
+	 Entrez la commande suivante
 
 		let xhr = new XMLHttpRequest();
 
    Cette commande instancie un nouvel objet JavaScript de type `XMLHttRequest`, stocké dans la variable `xhr`.
 
-4. Cet objet sert à lancer des requêtes au serveur. Nous allons lancer, grâce à la variable `xhr`, une requête à la page `coucou.php`. Pour cela, entrez les commandes suivantes dans la console :
+2. Cet objet sert à lancer des requêtes au serveur. Nous allons lancer, grâce à la variable `xhr`, une requête à la page `coucou.php`. Pour cela, entrez les commandes suivantes dans la console :
 
 		xhr.readyState;					// état de xhr
 		xhr.responseText;					// contenu texte de la réponse
-		xhr.open("GET","votre url vers coucou.php",true);	// ouverture de la requête
+		xhr.open("GET","url_vers_coucou.php",true);	// ouverture de la requête
 		xhr.readyState;					// état de xhr
 		xhr.responseText;					// contenu texte de la réponse
 		xhr.send(null);					// envoi de la requête
 		xhr.readyState;					// état de xhr
 		xhr.responseText;					// contenu texte de la réponse
 
-	+ `readyState` donne l’état d’avancement de la requête, voir cours plus tard
-	  (valeurs de 0 à 4)
+	+ l'url vers le fichier `coucou.php` est `webinfo.iutmontp.univ-montp2.fr/~monlogin/JS/TD4/src/ex1/coucou.php`
+	+ `readyState` donne l’état d’avancement de la requête (0 à 4). voir cours plus tard.
 	+ `responseText` donne l’état actuel de la réponse textuelle à la requête
 	+ la méthode `open` donne à `xhr` tous les éléments pour lancer la requête.
-	+ la méthode `send` envoie la requête (le paramètre `null` vient du fait que
- 	  la méthode est GET, voir plus tard dans le cours).
+	+ la méthode `send` envoie la requête (le paramètre `null` vient du fait que la méthode est GET, voir plus tard dans le cours).
 	+ le paramètre `true` de la méthode `open` sera détaillé dans le cours.
 
-5. Commentez l’évolution des attributs `readystate` et `responseText`.
+3. Commentez l’évolution des attributs `readystate` et `responseText`.
 
 
 ## EXERCICE 2 – Utilisation de json_encode (PHP) et de JSON.parse (JS)
@@ -62,7 +61,7 @@ Vous utiliserez le format `JSON`, qui offre un format très lisible et compréhe
 
 1. Examinez le contenu du fichier `src/ex2/haddock_v1.php` puis appelez-le dans le navigateur. Vérifiez qu'à l'affichage, vous obtenez bien une chaîne de caractères correspondant à un tableau équivalent à celui stocké dans la variable `$haddock`.
 
-2. comme dans le premier exemple, créez un objet `XMLHttpRequest` puis lancez les commandes suivantes :
+2. Comme dans le premier exemple, créez un objet `XMLHttpRequest` puis lancez les commandes suivantes :
 
 		let xhr = new XMLHttpRequest();		
 		xhr.open("GET","votre url vers haddock_v1.php",true);
@@ -73,14 +72,20 @@ Vous utiliserez le format `JSON`, qui offre un format très lisible et compréhe
 		resultat;
 		let tab = JSON.parse(resultat);
 		tab;
+		tab.length;
+		tab[0];
+		tab[1];
+		tab[4];
+
+   Vous devez voir en console un tableau JavaScript dont on peut facilement récupérer les éléments, pour une utilisation ultérieure (par exemple un affichage dans une page html).
 
 
 ## EXERCICE 3 – Utilisation de json_encode (PHP) et de JSON.parse (JS)
 
 
-1. Examinez le contenu du fichier `src/ex3/haddock_v2.php` puis appelez-le dans le navigateur. Vérifiez qu'à l'affichage, vous obtenez bien une chaîne de caractères correspondant à un tableau équivalent à celui stocké dans la variable `$haddock`.
+1. Examinez le contenu du fichier `src/ex3/haddock_v2.php` puis appelez-le dans le navigateur. Vérifiez qu'à l'affichage, vous obtenez bien une chaîne de caractères correspondant à un objet équivalent à celui stocké dans la variable `$haddock`.
 
-2. comme dans le premier exemple, créez un objet `XMLHttpRequest` puis lancez les commandes suivantes :
+2. comme dans l'exercice précédent, créez un objet `XMLHttpRequest` puis lancez les commandes suivantes :
 
 		let xhr = new XMLHttpRequest();		
 		xhr.open("GET","votre url vers haddock_v2.php",true);
@@ -91,9 +96,12 @@ Vous utiliserez le format `JSON`, qui offre un format très lisible et compréhe
 		resultat;
 		let obj = JSON.parse(resultat);
 		obj;
+		obj.nom;
+		obj.prenom;
+		obj.coordonnees;
+		obj.coordonnees.email;
 
-
-3. Remarques sur la variable `obj` ?
+   Vous devez voir en console un objet JavaScript dont on peut facilement récupérer les attributs, pour une utilisation ultérieure.
 
 
 ## EXERCICE 4 – chargement long d’un fichier texte
@@ -123,7 +131,8 @@ remarque : évitez d’afficher directement dans la console la variable texte. 
 
 - on crée un objet `XMLHttpRequest`;
 - on lui donne les éléments pour lancer la requête;
-- on le met en écoute de l’événement `load`, et quand cet événement se produit, on lance une fonction anonyme qui affiche dans la console « chargement terminé » et on lance la requête.
+- on le met en écoute de l’événement `load`, et quand cet événement se produit, on lance une fonction anonyme qui affiche dans la console « chargement terminé »;
+- on lance la requête par send;
 
 Cette fonction lancée après la fin du chargement est habituellement appelée fonction **callback**.
 
@@ -144,7 +153,7 @@ Dans cet exercice, il y aura une requête sur une base de données, avec product
 
 Le contexte :
 
-+ vous disposez d'une table de données, que vous pouvez importer sur votre base de données par le fichier `ressources/verbes.sql`. Cette table contient environ 4000 verbes de la langue française.
++ vous disposez d'une table de données, que vous pouvez importer sur votre base de données par le fichier `ressources/verbes.sql`. Cette table contient environ 4800 verbes de la langue française.
 + Vous devrez mettre en place une interface de sélection des verbes, et un `<div>` d'affichage des verbes sélectionnés. La sélection se fera soit en cliquant sur un bouton (qui fera apparaître tous les verbes qui commencent par la lettre en question), soit en changeant la valeur du champ texte (qui fera apparaître tous les verbes qui contiennent la séquence de caractères tapée).
 
 Voici un exemple avec utilisation du champ de recherche
@@ -179,7 +188,7 @@ Cette fonction prend en charge deux paramètres, `lettre` et `type`. Elle doit :
 + créer une variable `url` qui correspond à l'adresse du fichier `recherche.php` à qui on passe, en `GET`, les variables `lettre` et `type` dont les valeurs sont données en paramètres de la fonction;
 + lancer la méthode `open` de la variable globale `xhr`, en méthode `GET`, à l'url précédente, avec le paramètre `true`;
 + envoyer la requête grâce à la méthode `send` de `xhr`;
-+ mettre `xhr` en état d'écoute de l'événement `load`, avec comme fonction de traitement asynchrone la fonction `callback_basique`, dont le seul effet sera d'afficher le `JSON.parse(xhr.responseText)` dans la console, sans le moindre traitement esthétique.
++ mettre `xhr` en état d'écoute de l'événement `load`, avec comme fonction de traitement **_asynchrone_** la fonction `callback_basique`, dont le seul effet sera d'afficher le `JSON.parse(xhr.responseText)` dans la console, sans le moindre traitement esthétique.
 
 Testez ensuite votre fonction dans la console, par exemple par des instructions comme :
 - `charger_verbes('a','init');`
