@@ -5,7 +5,7 @@
 ## TD5
 #### _Thème : l'objet XMLHttpRequest, requêtes AJAX_
 
-Cliquez sur le lien ci-dessous pour faire, dans un dossier public_html/JS/TD4, votre fork privé du TD4 (**attention, pas de fork à la main !**):
+Cliquez sur le lien ci-dessous pour faire, dans un dossier public_html/JS/TD5, votre fork privé du TD5 (**attention, pas de fork à la main !**):
 
 https://classroom.github.com/a/kOejRRzk
 
