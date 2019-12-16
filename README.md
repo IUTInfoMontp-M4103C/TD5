@@ -9,7 +9,7 @@ Cliquez sur le lien ci-dessous pour faire, dans un dossier public_html/JS/TD5, v
 
 https://classroom.github.com/a/kOejRRzk
 
-la version [pdf](ressources/td4.pdf)
+la version [pdf](ressources/td5.pdf)
 
 ## INTRODUCTION
 
