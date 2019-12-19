@@ -39,7 +39,7 @@ Vous utiliserez le format `JSON`, qui offre un format très lisible et compréhe
 
 		xhr.readyState;					// état de xhr
 		xhr.responseText;					// contenu texte de la réponse
-		xhr.open("GET","url_vers_coucou.php",true);			// ouverture de la requête
+		xhr.open("GET","url_vers_coucou.php",true);		// ouverture de la requête
 		xhr.readyState;					// état de xhr
 		xhr.responseText;					// contenu texte de la réponse
 		xhr.send(null);					// envoi de la requête
