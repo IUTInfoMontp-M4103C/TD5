@@ -39,7 +39,7 @@ Vous utiliserez le format `JSON`, qui offre un format très lisible et compréhe
 
 		xhr.readyState;					// état de xhr
 		xhr.responseText;					// contenu texte de la réponse
-		xhr.open("GET","url_vers_coucou.php",true);	// ouverture de la requête
+		xhr.open("GET","url_vers_coucou.php",true);			// ouverture de la requête
 		xhr.readyState;					// état de xhr
 		xhr.responseText;					// contenu texte de la réponse
 		xhr.send(null);					// envoi de la requête
@@ -121,8 +121,10 @@ Voici les commandes :
 			console.log("chargement terminé !!!");
 		});
 		xhr.send(null);
-		let texte = xhr.responseText;
-		texte.length;
+
+et une fois que le message "chargement terminé !!!" s'affiche :
+
+		xhr.responseText.length;
 
 remarque : évitez d’afficher directement dans la console la variable texte. Sa taille importante peut faire planter le navigateur...
 
@@ -173,12 +175,12 @@ Vous devez compléter, dans le fichier `js/scripts.js`, le code de la fonction `
 
 Cette interface sera automatiquement créée au chargement du `<body>`. Ceci se fera au moyen de l'instruction qui est pour le moment commentée et qu'il faudra activer :
 
-	body.onload = creer_interface;
+	document.body.onload = creer_interface;
 
 Les clics sur les divers boutons et les changements sur le champ de recherche seront gérés plus tard.
 
 - L'`input` de recherche est un `<input type="text" placeholder="entrez une séquence">`;
-- Les `input` représentant les lettres sont des `<input type="button" value="A">` avec une `value` personnalisée;
+- Les `input` représentant les lettres sont des `<input type="button" value="a">` avec une `value` personnalisée;
 - L'`input` pour effacer est un `<input type="button" value="effacer la liste">`;
 
 
@@ -187,8 +189,8 @@ Les clics sur les divers boutons et les changements sur le champ de recherche se
 Cette fonction prend en charge deux paramètres, `lettre` et `type`. Elle doit :
 + créer une variable `url` qui correspond à l'adresse du fichier `recherche.php` à qui on passe, en `GET`, les variables `lettre` et `type` dont les valeurs sont données en paramètres de la fonction;
 + lancer la méthode `open` de la variable globale `xhr`, en méthode `GET`, à l'url précédente, avec le paramètre `true`;
-+ envoyer la requête grâce à la méthode `send` de `xhr`;
 + mettre `xhr` en état d'écoute de l'événement `load`, avec comme fonction de traitement **_asynchrone_** la fonction `callback_basique`, dont le seul effet sera d'afficher le `JSON.parse(xhr.responseText)` dans la console, sans le moindre traitement esthétique.
++ envoyer la requête grâce à la méthode `send` de `xhr`;
 
 Testez ensuite votre fonction dans la console, par exemple par des instructions comme :
 - `charger_verbes('a','init');`
@@ -199,6 +201,8 @@ Enfin, faites en sorte de modifier la fonction `creer_interface` pour que :
 + un clic sur un bouton de type lettre lance `charger_verbes` avec comme paramètres la valeur de la lettre et le type 'init' (comme initiale);
 + un changement dans l'input de recherche lance `charger_verbes` avec comme paramètres la valeur du champ et le type 'seq' (comme séquence).
 
+Vous pouvez passer par des écouteurs d'événements (`click` ou `input`), ou bien affecter aux attributs `onclick` et `oninput` des différents input des fonctions anonymes qui font les actions attendues. Testez les deux méthodes. 
+
 
 **3. La fonction callback**
 
@@ -208,6 +212,7 @@ C'est elle qui est chargée, à partir de `xhr.responseText`, de remplir la `<di
 + pour chaque élément du tableau `xhrJSON`, fabriquer un élément `<p>` dont le `innerHTML` sera le libellé de l'élément courant du tableau `xhrJSON`;
 + faire adopter cet élément paragraphe par `div_verbes`.
 
+N'oubliez pas de modifier `charger_verbes` pour qu'elle appelle non plus le `callback_basique` mais ce nouveau `callback`... 
 
 **4. le bouton "effacer la liste"**
 
