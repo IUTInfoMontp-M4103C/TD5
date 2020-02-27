@@ -1,5 +1,7 @@
 #input {
   position:fixed;
+  top:8px;
+  left:8px;
   width:240px
 }
 
