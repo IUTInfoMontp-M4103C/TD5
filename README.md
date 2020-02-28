@@ -48,7 +48,7 @@ Vous utiliserez le format `JSON`, qui offre un format très lisible et compréhe
 		xhr.readyState;					// état de xhr
 		xhr.responseText;					// contenu texte de la réponse
 
-	+ l'url vers le fichier `coucou.php` est `webinfo.iutmontp.univ-montp2.fr/~monlogin/JS/TD4/src/ex1/coucou.php`
+	+ l'url vers le fichier `coucou.php` est celle qui correspond à votre architecture de fichiers, par exemple `webinfo.iutmontp.univ-montp2.fr/~monlogin/JS/TD4/src/ex1/coucou.php`
 	+ `readyState` donne l’état d’avancement de la requête (0 à 4). voir cours plus tard.
 	+ `responseText` donne l’état actuel de la réponse textuelle à la requête
 	+ la méthode `open` donne à `xhr` tous les éléments pour lancer la requête.
