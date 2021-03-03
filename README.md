@@ -21,7 +21,7 @@ Il permet par exemple de lancer des requêtes sur une base de données, mais aus
 
 Vous utiliserez le format `JSON`, qui offre un format très lisible et compréhensible d’échange de données, et que vous pouvez utiliser en **PHP** et en **JavaScript**. Ce format sera utilisé simplement au travers de fonctions PHP (`json_encode`) et JS (`JSON.parse`).
 
-**Attention vous devez impérativement travailler dans votre répertoire public_html (fichers PHP).**
+**Attention vous devez impérativement travailler dans votre répertoire public_html (fichiers PHP).**
 
 ## EXERCICE 1 – premier exemple simple
 
