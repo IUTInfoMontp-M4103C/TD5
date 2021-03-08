@@ -31,7 +31,7 @@ class Model {
             $values = array("name_tag" => $l);
             // exécution
             $req_prep->execute($values);
-            $tabResults = $req_prep->fetchAll();
+            $tabResults = $req_prep->fetchAll(PDO::FETCH_ASSOC);
             // tableau résultat retourné
             return $tabResults;
         } catch (PDOException $e) {

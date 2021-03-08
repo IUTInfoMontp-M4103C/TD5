@@ -217,3 +217,20 @@ N'oubliez pas de modifier `charger_verbes` pour qu'elle appelle non plus le `cal
 **4. le bouton "effacer la liste"**
 
 Il reste, dans la fonction `creer_interface`, à définir ce que donnera le clic sur le bouton "effacer la liste", à savoir : réinitialiser le `innerHTML` de `div_verbes`, et effacer la valeur du champ de recherche. A vous !
+
+**5. Encodage des URLs**
+
+Dans la fonction `charger_verbes`, vous avez créé une URL avec *query string* à
+partir de données venant de l'utilisateur. Comme nous l'avons vu en PHP, cela
+pose un problème de sécurité : si l'utilisateur utilise des caractères comme
+`?,=,/,&`, alors cela *casse* l'URL, c'est-à-dire que cela en change le sens.
+
+Pour parer à cela, nous allons comme en PHP échapper les caractères spéciaux des
+URLs. L'équivalent de la fonction PHP `rawurlencode` est la fonction JS
+[`encodeURIComponent`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent). Attention,
+il ne faut pas l'appliquer à toute l'URL, mais juste aux bouts dont on veut
+échapper les caractères spéciaux.
+
+Pour tester que votre code est maintenant sécurisé, rajoutez des mots avec des
+caractères spéciaux `?,=,/,&` dans votre base de données `verbes` et vérifiez qu'ils apparaissent bien quand vous tapez leur début. Par exemple, rajoutez `a&e?bla` dans la BDD et tapez `a&e?b` dans l'`input` de recherche.
+
