@@ -234,3 +234,7 @@ il ne faut pas l'appliquer à toute l'URL, mais juste aux bouts dont on veut
 Pour tester que votre code est maintenant sécurisé, rajoutez des mots avec des
 caractères spéciaux `?,=,/,&` dans votre base de données `verbes` et vérifiez qu'ils apparaissent bien quand vous tapez leur début. Par exemple, rajoutez `a&e?bla` dans la BDD et tapez `a&e?b` dans l'`input` de recherche.
 
+**6. Requête `POST`**
+
+Changez votre requête JS pour faire une requête `POST` et mettez à jour la façon
+de passer les paramètres de la requête pour faire comme les formulaires `POST` (cf le Cours).
