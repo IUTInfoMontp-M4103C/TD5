@@ -208,15 +208,15 @@ Vous pouvez passer par des écouteurs d'événements (`click` ou `input`), ou bi
 
 C'est elle qui est chargée, à partir de `xhr.responseText`, de remplir la `<div id="liste_verbes">`. On doit :
 + récupérer dans une variable xhrJSON le `JSON.parse(xhr.responseText)`;
-+ réinitialiser le `innerHTML` de la `div_verbes`;
++ réinitialiser le `innerHTML` de la `liste_verbes`;
 + pour chaque élément du tableau `xhrJSON`, fabriquer un élément `<p>` dont le `innerHTML` sera le libellé de l'élément courant du tableau `xhrJSON`;
-+ faire adopter cet élément paragraphe par `div_verbes`.
++ faire adopter cet élément paragraphe par `liste_verbes`.
 
 N'oubliez pas de modifier `charger_verbes` pour qu'elle appelle non plus le `callback_basique` mais ce nouveau `callback`... 
 
 **4. le bouton "effacer la liste"**
 
-Il reste, dans la fonction `creer_interface`, à définir ce que donnera le clic sur le bouton "effacer la liste", à savoir : réinitialiser le `innerHTML` de `div_verbes`, et effacer la valeur du champ de recherche. A vous !
+Il reste, dans la fonction `creer_interface`, à définir ce que donnera le clic sur le bouton "effacer la liste", à savoir : réinitialiser le `innerHTML` de `liste_verbes`, et effacer la valeur du champ de recherche. A vous !
 
 **5. Encodage des URLs**
 
@@ -237,4 +237,4 @@ caractères spéciaux `?,=,/,&` dans votre base de données `verbes` et vérifie
 **6. Requête `POST`**
 
 Changez votre requête JS pour faire une requête `POST` et mettez à jour la façon
-de passer les paramètres de la requête pour faire comme les formulaires `POST` (cf le Cours).
+de passer les paramètres de la requête pour faire comme les formulaires `POST` (cf le Cours et la [documentation MDN](https://developer.mozilla.org/fr/docs/Web/API/XMLHttpRequest/send)).
